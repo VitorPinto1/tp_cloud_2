@@ -1,13 +1,15 @@
 FROM node:22-slim
 
-RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 
-COPY package.json .
-
+COPY package*.json ./
 RUN npm install
 
 COPY . .
 
-CMD ["npm", "run", "dev"]
+RUN npm run build
+
+ENV PORT=8080
+EXPOSE 8080
+
+CMD ["npm", "run", "start"]
