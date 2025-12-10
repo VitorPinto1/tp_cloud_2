@@ -1,0 +1,3 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', 'tp-cloud-2-480808:latest', '.']
