@@ -9,14 +9,16 @@ gcloud config set project tp-cloud-2-480808
 
 # Gcloud avtiver cloud build
 gcloud services enable cloudbuild.googleapis.com
+
 # Gcloud build manuel
 
 local il faut metre le id projet en dur
-gcloud builds submit --config=.yaml .
+
+gcloud builds submit --config=cloudbuild.yaml .
 
 ou 
 
-gcloud builds submit --config ./.yaml --project tp-cloud-2-480808 .
+gcloud builds submit --config cloudbuild.yaml --project tp-cloud-2-480808 .
 
 # Gcloud artifacts - À créer la première fois
 
