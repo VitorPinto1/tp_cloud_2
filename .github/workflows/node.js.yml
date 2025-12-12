@@ -39,5 +39,5 @@ jobs:
     - name: Submit to Cloud Build
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        BUILD_ID=$(gcloud builds submit --async --config ./cloudbuild.yaml --project tp-cloud-2-480808 . | grep -oP 'id: \K[^ ]+')
+        BUILD_ID=$(gcloud builds submit --async --config ./cloudbuild.yaml --project tp-cloud-2-480808 . 2>&1 | grep -o 'builds/[^ ]*' | cut -d'/' -f2)
         gcloud builds wait $BUILD_ID --project tp-cloud-2-480808
