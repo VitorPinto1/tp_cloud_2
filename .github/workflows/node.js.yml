@@ -38,6 +38,16 @@ jobs:
     
     - name: Submit to Cloud Build
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      continue-on-error: true
+      run: gcloud builds submit --config ./cloudbuild.yaml --project tp-cloud-2-480808 .
+    
+    - name: Check Build Status
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        BUILD_ID=$(gcloud builds submit --async --config ./cloudbuild.yaml --project tp-cloud-2-480808 . 2>&1 | grep -o 'builds/[^ ]*' | cut -d'/' -f2)
-        gcloud builds wait $BUILD_ID --project tp-cloud-2-480808
+        BUILD_ID=$(gcloud builds list --limit=1 --format='value(id)' --project tp-cloud-2-480808)
+        STATUS=$(gcloud builds describe $BUILD_ID --format='value(status)' --project tp-cloud-2-480808)
+        if [ "$STATUS" != "SUCCESS" ]; then
+          echo "Build failed with status: $STATUS"
+          exit 1
+        fi
+        echo "Build completed successfully!"
