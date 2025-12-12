@@ -51,3 +51,13 @@ jobs:
           exit 1
         fi
         echo "Build completed successfully!"
+    
+    - name: Deploy to Cloud Run
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        # cloudbuild.yaml pousse toujours avec le tag :latest, donc on utilise directement :latest
+        gcloud run deploy tp-cloud-2 \
+          --image europe-west9-docker.pkg.dev/tp-cloud-2-480808/tp-cloud-2-docker/tp_cloud_2:latest \
+          --region europe-west9 \
+          --platform managed \
+          --allow-unauthenticated
