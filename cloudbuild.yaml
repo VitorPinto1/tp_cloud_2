@@ -5,6 +5,14 @@ steps:
     args: ['tag', 'tp-cloud-2-480808:latest', 'europe-west9-docker.pkg.dev/${PROJECT_ID}/tp-cloud-2-docker/tp_cloud_2:latest']
   - name: gcr.io/cloud-builders/docker
     args: ['push', 'europe-west9-docker.pkg.dev/${PROJECT_ID}/tp-cloud-2-docker/tp_cloud_2:latest']
-  
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - tp-cloud-2   
+      - --image=europe-west9-docker.pkg.dev/${PROJECT_ID}/tp-cloud-2-docker/tp_cloud_2:latest
+      - --region=europe-west9
+      - --platform=managed
 options:
   logging: CLOUD_LOGGING_ONLY
