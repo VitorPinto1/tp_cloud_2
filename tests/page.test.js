@@ -6,7 +6,7 @@ function testPageTitle() {
   const pagePath = path.join(__dirname, '../app/page.js');
   const content = fs.readFileSync(pagePath, 'utf8');
   
-  if (!content.includes('Home')) {
+  if (!content.includes('Homer')) {
     console.error('❌ Test failed: Title "Home" not found in page.js');
     process.exit(1);
   }
