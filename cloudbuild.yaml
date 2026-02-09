@@ -5,3 +5,6 @@ steps:
     args: ['tag', 'tp-cloud-2-480808:latest', 'europe-west9-docker.pkg.dev/${PROJECT_ID}/tp-cloud-2-docker/tp_cloud_2:latest']
   - name: gcr.io/cloud-builders/docker
     args: ['push', 'europe-west9-docker.pkg.dev/${PROJECT_ID}/tp-cloud-2-docker/tp_cloud_2:latest']
+  
+options:
+  logging: CLOUD_LOGGING_ONLY
