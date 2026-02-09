@@ -18,7 +18,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v1
+      with:
+        credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+      with:
+        project_id: tp-cloud-2-480808
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
@@ -28,3 +36,28 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     
+    - name: Submit to Cloud Build
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      continue-on-error: true
+      run: gcloud builds submit --config ./cloudbuild.yaml --project tp-cloud-2-480808 .
+    
+    - name: Check Build Status
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        BUILD_ID=$(gcloud builds list --limit=1 --format='value(id)' --project tp-cloud-2-480808)
+        STATUS=$(gcloud builds describe $BUILD_ID --format='value(status)' --project tp-cloud-2-480808)
+        if [ "$STATUS" != "SUCCESS" ]; then
+          echo "Build failed with status: $STATUS"
+          exit 1
+        fi
+        echo "Build completed successfully!"
+    
+    - name: Deploy to Cloud Run
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        # cloudbuild.yaml pousse toujours avec le tag :latest, donc on utilise directement :latest
+        gcloud run deploy tp-cloud-2 \
+          --image europe-west9-docker.pkg.dev/tp-cloud-2-480808/tp-cloud-2-docker/tp_cloud_2:latest \
+          --region europe-west9 \
+          --platform managed \
+          --allow-unauthenticated
