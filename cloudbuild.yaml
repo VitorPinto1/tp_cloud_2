@@ -1,6 +1,6 @@
 steps:
   - name: gcr.io/cloud-builders/docker
-    args: ['build', '-t', 'tp-cloud-2-480808:${SHORT_SHA}', '.']
+    args: ['build', '-t', 'pepetp-cloud-2-480808:${SHORT_SHA}', '.']
   - name: gcr.io/cloud-builders/docker
     args: ['tag', 'tp-cloud-2-480808:${SHORT_SHA}', 'europe-west9-docker.pkg.dev/${PROJECT_ID}/tp-cloud-2-docker/tp_cloud_2:${SHORT_SHA}']
   - name: gcr.io/cloud-builders/docker
