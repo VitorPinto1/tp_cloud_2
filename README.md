@@ -7,7 +7,7 @@ docker run -d -p 8080:8080 --name tp2-container tp_cloud_2
 # Gcloud selection projet
 gcloud config set project tp-cloud-2-480808
 
-# Gcloud avtiver cloud build
+# Gcloud activer cloud build
 gcloud services enable cloudbuild.googleapis.com
 
 # Gcloud build manuel
