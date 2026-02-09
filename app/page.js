@@ -3,7 +3,7 @@ export default function Home() {
     <main>
       <h1>Home</h1>
       <p>Bienvenue </p>
-      <p>TP CLOUD 2 TEST</p>
+      <p>TP CLOUD 2 TEST 2</p>
     </main>
   )
 }
