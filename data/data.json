@@ -7,8 +7,7 @@
         "goalkeepers": ["Iker Casillas", "Keylor Navas"],
         "defenders": ["Sergio Ramos", "Marcelo", "Pepe", "Álvaro Arbeloa", "Raphaël Varane", "Dani Carvajal"],
         "midfielders": ["Xabi Alonso", "Luka Modrić", "Ángel Di María", "Toni Kroos", "Casemiro"],
-        "forwards": ["Cristiano Ronaldo", "Karim Benzema", "Gareth Bale"],
-        "mvp": ["Vitor Pinto"]
+        "forwards": ["Cristiano Ronaldo", "Karim Benzema", "Gareth Bale"]
 
       }
     }
