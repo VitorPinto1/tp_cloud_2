@@ -1,5 +1,9 @@
 # tp_cloud_2
-Application NestJS minimale pour GCP
+API NestJS minimale pour GCP (données depuis `data/data.json`).
+
+**Routes :**
+- `GET /health` 
+- `GET /api/data` 
 
 # Docker run
 docker run -d -p 8080:8080 --name tp2-container tp_cloud_2
