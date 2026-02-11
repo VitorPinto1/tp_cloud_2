@@ -1,0 +1,40 @@
+{
+  "RealMadrid_ChampionsLeague_with_Ronaldo": [
+    {
+      "season": "2013-14",
+      "players": {
+        "goalkeepers": ["Iker Casillas", "Keylor Navas"],
+        "defenders": ["Sergio Ramos", "Marcelo", "Pepe", "Álvaro Arbeloa", "Raphaël Varane", "Dani Carvajal"],
+        "midfielders": ["Xabi Alonso", "Luka Modrić", "Ángel Di María", "Toni Kroos", "Casemiro"],
+        "forwards": ["Cristiano Ronaldo", "Karim Benzema", "Gareth Bale"]
+      }
+    },
+    {
+      "season": "2015-16",
+      "players": {
+        "goalkeepers": ["Keylor Navas", "Casillas"],
+        "defenders": ["Sergio Ramos", "Marcelo", "Pepe", "Dani Carvajal", "Raphaël Varane", "Álvaro Arbeloa"],
+        "midfielders": ["Luka Modrić", "Toni Kroos", "Casemiro", "James Rodríguez", "Isco"],
+        "forwards": ["Cristiano Ronaldo", "Karim Benzema", "Gareth Bale"]
+      }
+    },
+    {
+      "season": "2016-17",
+      "players": {
+        "goalkeepers": ["Keylor Navas", "Casillas"],
+        "defenders": ["Sergio Ramos", "Marcelo", "Pepe", "Dani Carvajal", "Raphaël Varane", "Nacho Fernández"],
+        "midfielders": ["Luka Modrić", "Toni Kroos", "Casemiro", "Isco", "James Rodríguez"],
+        "forwards": ["Cristiano Ronaldo", "Karim Benzema", "Gareth Bale", "Lucas Vázquez"]
+      }
+    },
+    {
+      "season": "2017-18",
+      "players": {
+        "goalkeepers": ["Keylor Navas", "Kiko Casilla"],
+        "defenders": ["Sergio Ramos", "Marcelo", "Dani Carvajal", "Raphaël Varane", "Nacho Fernández"],
+        "midfielders": ["Luka Modrić", "Toni Kroos", "Casemiro", "Isco", "Marco Asensio"],
+        "forwards": ["Cristiano Ronaldo", "Karim Benzema", "Gareth Bale", "Lucas Vázquez"]
+      }
+    }
+  ]
+}
