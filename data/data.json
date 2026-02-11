@@ -1,0 +1,9 @@
+{
+  "title": "TP Cloud API",
+  "items": [
+    { "id": 1, "label": "Item A" },
+    { "id": 2, "label": "Item B" },
+    { "id": 3, "label": "Item C" }
+  ],
+  "updatedAt": "2025-02-11"
+}
