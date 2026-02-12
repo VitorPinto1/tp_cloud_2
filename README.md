@@ -50,6 +50,9 @@ https://tp-cloud-2-426914906044.europe-west9.run.app
 
 gcloud artifacts docker images list europe-west9-docker.pkg.dev/tp-cloud-2-480808/tp-cloud-2-docker --include-tags
 
+# swagger 
+
+
 # Compte de service
 Agent de service Cloud Build
 Éditeur Cloud Build
